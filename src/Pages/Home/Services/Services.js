@@ -11,7 +11,7 @@ const Services = () => {
   useEffect(() => {
     setServiceLoading(true);
     axios
-      .get("https://morning-escarpment-37894.herokuapp.com/products")
+      .get("https://arcane-sierra-98556.herokuapp.com/products")
       .then((data) => {
         setServices(data.data);
         setServiceLoading(false);

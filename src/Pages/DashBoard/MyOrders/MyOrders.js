@@ -20,7 +20,7 @@ const MyOrders = () => {
 
   // fetching user orders by his email from database
   useEffect(() => {
-    const url = `https://morning-escarpment-37894.herokuapp.com/myOrders/${user?.email}`;
+    const url = `https://arcane-sierra-98556.herokuapp.com/myOrders/${user?.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
@@ -31,7 +31,7 @@ const MyOrders = () => {
   const handleCancelOrder = (id) => {
     const proceed = window.confirm("Are you sure want to delete the order ?");
     if (proceed) {
-      const url = `https://morning-escarpment-37894.herokuapp.com/deleteOrder/${id}`;
+      const url = `https://arcane-sierra-98556.herokuapp.com/deleteOrder/${id}`;
 
       fetch(url, {
         method: "DELETE",

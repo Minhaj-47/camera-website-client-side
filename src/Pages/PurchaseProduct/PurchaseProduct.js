@@ -33,7 +33,7 @@ const PurchaseProduct = () => {
 
   useEffect(() => {
     axios
-      .get("https://morning-escarpment-37894.herokuapp.com/products")
+      .get("https://arcane-sierra-98556.herokuapp.com/products")
       .then((data) => {
         const productsArray = data.data;
         const filterProduct = productsArray.filter(
@@ -46,7 +46,7 @@ const PurchaseProduct = () => {
   const onSubmit = (data) => {
     data.productName = product[0].modelName;
     data.status = "pending";
-    fetch("https://morning-escarpment-37894.herokuapp.com/addOrders", {
+    fetch("https://arcane-sierra-98556.herokuapp.com/addOrders", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

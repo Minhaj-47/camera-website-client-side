@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   updateProfile,
   signOut,
+  getIdToken,
 } from "firebase/auth";
 
 // initialize firebase app
@@ -19,7 +20,7 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);
-  // const [adminLoading, setAdminLoading] = useState(true);
+  const [token, setToken] = useState("");
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -87,6 +88,9 @@ const useFirebase = () => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        getIdToken(user).then((idToken) => {
+          setToken(idToken);
+        });
       } else {
         setUser({});
       }
@@ -97,7 +101,7 @@ const useFirebase = () => {
 
   // checking current user is admin or not
   useEffect(() => {
-    fetch(`https://morning-escarpment-37894.herokuapp.com/users/${user?.email}`)
+    fetch(`https://arcane-sierra-98556.herokuapp.com/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data.admin);
@@ -119,7 +123,7 @@ const useFirebase = () => {
   // saved logged in user data in database
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://morning-escarpment-37894.herokuapp.com/users", {
+    fetch("https://arcane-sierra-98556.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -136,6 +140,7 @@ const useFirebase = () => {
     registerUser,
     loginUser,
     signInWithGoogle,
+    token,
     logout,
   };
 };

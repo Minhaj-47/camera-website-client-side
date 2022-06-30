@@ -48,7 +48,7 @@ const AllServices = () => {
   const [sonyProducts, setSonyProducts] = useState([]);
   useEffect(() => {
     axios
-      .get("https://morning-escarpment-37894.herokuapp.com/products")
+      .get("https://arcane-sierra-98556.herokuapp.com/products")
       .then((data) => {
         const productsArray = data.data;
         console.log(productsArray);

@@ -34,7 +34,7 @@ const AddProduct = () => {
     console.log(newProductData);
     axios
       .post(
-        "https://morning-escarpment-37894.herokuapp.com/products",
+        "https://arcane-sierra-98556.herokuapp.com/products",
         newProductData
       )
       .then((res) => {

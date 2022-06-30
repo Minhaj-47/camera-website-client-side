@@ -3,7 +3,7 @@ import React from "react";
 import Paper from "@mui/material/Paper";
 import { Rating, Typography } from "@mui/material";
 const SingleReview = ({ review }) => {
-  console.log(review);
+  // console.log(review);
   return (
     <div>
       <Paper

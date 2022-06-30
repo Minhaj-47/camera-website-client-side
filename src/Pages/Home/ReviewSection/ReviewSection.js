@@ -9,12 +9,12 @@ const ReviewSection = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
-      .get("https://morning-escarpment-37894.herokuapp.com/reviews")
+      .get("https://arcane-sierra-98556.herokuapp.com/reviews")
       .then((data) => {
         setReviews(data.data);
       });
   }, []);
-  console.log(reviews);
+  // console.log(reviews);
   var settings = {
     infinite: true,
     slidesToShow: 3,

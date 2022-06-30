@@ -32,7 +32,7 @@ const Review = () => {
     console.log(data);
     // posting user review in database
     axios
-      .post("https://morning-escarpment-37894.herokuapp.com/reviews", data)
+      .post("https://arcane-sierra-98556.herokuapp.com/reviews", data)
       .then((res) => {
         if (res.data.insertedId) {
           console.log(data);

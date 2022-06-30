@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
   // fetching all user orders from database
   useEffect(() => {
     setIsLoading(true);
-    const url = `https://morning-escarpment-37894.herokuapp.com/orders`;
+    const url = `https://arcane-sierra-98556.herokuapp.com/orders`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -35,7 +35,7 @@ const ManageAllOrders = () => {
       "Are you sure,about canceling this users order ?"
     );
     if (proceed) {
-      const url = `https://morning-escarpment-37894.herokuapp.com/deleteOrder/${id}`;
+      const url = `https://arcane-sierra-98556.herokuapp.com/deleteOrder/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -58,7 +58,7 @@ const ManageAllOrders = () => {
     const updatedorder = userOrders.find((order) => order._id === id);
     updatedorder.status = "shipped";
 
-    const url = `https://morning-escarpment-37894.herokuapp.com/approve/${id}`;
+    const url = `https://arcane-sierra-98556.herokuapp.com/approve/${id}`;
 
     fetch(url, {
       method: "PUT",

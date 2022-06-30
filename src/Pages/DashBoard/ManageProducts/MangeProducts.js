@@ -22,7 +22,7 @@ const ManageProducts = () => {
   // fetching all products data
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://morning-escarpment-37894.herokuapp.com/products")
+    fetch("https://arcane-sierra-98556.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);
@@ -31,7 +31,7 @@ const ManageProducts = () => {
   }, []);
   // delete selected product
   const handleDelete = (id) => {
-    const url = `https://morning-escarpment-37894.herokuapp.com/products/${id}`;
+    const url = `https://arcane-sierra-98556.herokuapp.com/products/${id}`;
     fetch(url, {
       method: "DELETE",
     })

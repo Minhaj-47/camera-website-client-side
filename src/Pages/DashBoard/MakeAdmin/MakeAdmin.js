@@ -1,10 +1,12 @@
 //admin can make an existing user admin
 import React, { useState } from "react";
 import { Alert, Button, TextField, Container, Typography } from "@mui/material";
+import useFirebase from "../../../hooks/useFirebase";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
   const [addedAdmin, setAddedAdmin] = useState(false);
+  const { token } = useFirebase();
 
   const handleOnBlur = (e) => {
     setEmail(e.target.value);
@@ -14,9 +16,10 @@ const MakeAdmin = () => {
   const handleAdminSubmit = (e) => {
     const user = { email };
 
-    fetch("https://morning-escarpment-37894.herokuapp.com/users/admin", {
+    fetch("http://localhost:5000/users/admin", {
       method: "PUT",
       headers: {
+        authorization: `Bearer ${token}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(user),
